@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Document metadata -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyModal Example</title>
+    <!-- Link to CSS file for modal styling -->
+    <link rel="stylesheet" href="easymodal.css">
+</head>
+
+<body>
+
+<!-- Button to open the modal -->
+    <button id="openModalBtn">Open Modal</button>
+
+<!-- Inclusion of EasyModal script -->
+    <script src="easymodal.js"></script>
+    <script>
+    /**
+             * Create a new instance of EasyModal.
+             * You can customize content, width, height,
+             * and other options here.
+             */
+        const modal = new EasyModal({
+            content: "<p>Hello, I am a modal!</p>",
+            width: "500px",
+            height: "300px"
+        });
+
+    /**
+             * Add an event handler to open the modal
+             * when the user clicks on the button.
+             */
+        document.getElementById('openModalBtn').addEventListener('click', function () {
+            modal.open();
+        });
+
+        /**
+        * Definition of a global function to close the modal.
+        * This is necessary because the close button in the modal
+        * uses an inline event handler that refers
+        * to a 'modal.close()' function that must be available globally.
+        */
+        window.closeModal = function () {
+            modal.close();
+        };
+    </script>
+
+</body>
+
+</html>
